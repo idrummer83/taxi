@@ -27,7 +27,8 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '-%%5$!c2wcov+v*gj^u4mtbu3lm5&f
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['whispering-fortress-53906.herokuapp.com','127.0.0.1']
 
 
 # Application definition
