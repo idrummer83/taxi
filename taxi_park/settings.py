@@ -89,9 +89,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-DATABASES['default1'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -146,4 +143,4 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+DATABASES['default1'].update(db_from_env)
