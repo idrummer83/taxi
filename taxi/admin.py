@@ -11,6 +11,13 @@ from taxi.models import Driver, UserImage, Car
 class AdminUserImage(admin.TabularInline):
     model = UserImage
 
+    def has_add_permission(self, request):
+        num_objects = self.model.objects.count()
+        if num_objects > 7:
+            return False
+        else:
+            return True
+
 
 class AdminCar(admin.TabularInline):
     model = Car

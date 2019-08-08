@@ -61,7 +61,8 @@ class UserImage(models.Model):
     def __str__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     qs = UserImage.objects.count()
-    #     if qs > 7:
-    #         qs[0].delete()
+    def save(self, *args, **kwargs):
+        if self.__class__.objects.all().count() > 7:
+            return False
+        # return super(model_name, self).save(*args, **kwargs)
+        return super().save(*args, **kwargs)
