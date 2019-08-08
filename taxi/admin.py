@@ -18,6 +18,7 @@ class AdminCar(admin.TabularInline):
 
 @admin.register(Driver)
 class AdminDriver(TabbedModelAdmin):
+    list_display = ('id', 'user', 'name', 'lastname')
     model = Driver
     tab_user = (
         (None, {

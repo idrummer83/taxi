@@ -31,7 +31,7 @@ class Driver(Inviter):
         verbose_name_plural = "пользователи"
 
     def __str__(self):
-        return self.user.name
+        return self.name
 
 
 class Car(models.Model):
@@ -51,9 +51,17 @@ class Car(models.Model):
 
 class UserImage(models.Model):
     driver = models.ForeignKey(Driver, on_delete=models.CASCADE, verbose_name='img_driver')
-    image = models.ImageField(upload_to='images/user/', )
+    title = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(upload_to='images/user/', null=True, blank=True)
 
-    def save(self, *args, **kwargs):
-        qs = UserImage.objects.count()
-        if qs > 7:
-            qs[0].delete()
+    class Meta:
+        verbose_name = "photo"
+        verbose_name_plural = "photo"
+
+    def __str__(self):
+        return self.title
+
+    # def save(self, *args, **kwargs):
+    #     qs = UserImage.objects.count()
+    #     if qs > 7:
+    #         qs[0].delete()
