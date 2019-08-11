@@ -8,10 +8,10 @@ from django.conf import settings
 # Create your models here.
 
 class Inviter(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     number_for_invite = models.UUIDField(default=uuid.uuid4, max_length=13, help_text='реф номер для приглашений')
     user_number_for_invite = models.CharField(max_length=150, verbose_name='реф номер пригласителя')
-    invited_link = models.CharField(max_length=100, verbose_name='ссылка на того, кто пригласил')
+    # invited_link = models.CharField(max_length=100, verbose_name='ссылка на того, кто пригласил')
 
     class Meta:
         abstract = True

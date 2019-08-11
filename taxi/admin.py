@@ -18,12 +18,12 @@ class AdminCar(admin.TabularInline):
 
 @admin.register(Driver)
 class AdminDriver(TabbedModelAdmin):
-    list_display = ('id', 'user', 'name', 'lastname')
+    list_display = ('id', 'name', 'surname', 'lastname')
     model = Driver
     tab_user = (
         (None, {
-            'fields': ('user', 'number_for_invite', 'name', 'surname', 'lastname',
-                       'phone', 'balance', 'user_number_for_invite', 'invited_link')
+            'fields': ('number_for_invite', 'name', 'surname', 'lastname',
+                       'phone', 'balance', 'user_number_for_invite')
         }),
     )
     tab_car = (

@@ -1,5 +1,5 @@
 env
 .idea
 .gitignore
-*/migrations
 db.*
+/taxi_park/local.py

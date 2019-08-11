@@ -19,12 +19,15 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from taxi.views import signup
+from taxi.views import main_page, signup_manager, signup_driver
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
-    # path('signup/', signup, name='signup'),
-    path('', signup, name='signup'),
+    path('api/v1/cars/', include('taxi.urls')),
+    path('api/v1/auth/', include('rest_framework.urls')),
+    path('', main_page, name='main_page'),
+    path('manager/', signup_manager, name='signup_manager'),
+    path('driver/', signup_driver, name='signup_driver'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
